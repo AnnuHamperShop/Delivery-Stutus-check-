@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Premium Gift Store | Track Parcel</title>
+<title>Premium Gift Store | Parcel Tracking</title>
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
@@ -19,11 +19,9 @@ body{
     color:#172033;
 }
 
-/* TOP BAR */
-
 .topbar{
-    background:#ffffff;
-    border-bottom:1px solid #e8ebf0;
+    background:#fff;
+    border-bottom:1px solid #e7eaf0;
     padding:18px 6%;
     display:flex;
     justify-content:space-between;
@@ -33,7 +31,6 @@ body{
 .logo{
     font-size:20px;
     font-weight:800;
-    letter-spacing:.5px;
 }
 
 .logo span{
@@ -48,8 +45,6 @@ body{
     color:#64748b;
 }
 
-/* DEMO */
-
 .demo{
     text-align:center;
     background:#fff7df;
@@ -59,14 +54,10 @@ body{
     font-weight:600;
 }
 
-/* MAIN */
-
 .wrapper{
     width:min(1050px,92%);
     margin:35px auto;
 }
-
-/* HERO */
 
 .hero{
     margin-bottom:25px;
@@ -81,8 +72,6 @@ body{
     color:#64748b;
     font-size:14px;
 }
-
-/* SEARCH */
 
 .search{
     background:#172033;
@@ -121,17 +110,16 @@ body{
     cursor:pointer;
 }
 
-.search button:hover{
-    background:#6d28d9;
+.error{
+    display:none;
+    color:#fecaca;
+    font-size:12px;
+    margin-top:10px;
 }
-
-/* RESULT */
 
 .result{
     display:none;
 }
-
-/* STATUS HEADER */
 
 .status-header{
     background:#fff;
@@ -169,15 +157,11 @@ body{
     font-weight:bold;
 }
 
-/* GRID */
-
 .grid{
     display:grid;
     grid-template-columns:1.2fr .8fr;
     gap:18px;
 }
-
-/* CARD */
 
 .card{
     background:#fff;
@@ -191,8 +175,6 @@ body{
     font-weight:bold;
     margin-bottom:20px;
 }
-
-/* ROUTE */
 
 .route{
     display:flex;
@@ -235,8 +217,6 @@ body{
     background:#7c3aed;
 }
 
-/* DISTANCE */
-
 .distance{
     margin-top:22px;
     padding:18px;
@@ -256,8 +236,6 @@ body{
     font-size:12px;
     margin-top:4px;
 }
-
-/* CUSTOMER */
 
 .customer-grid{
     display:grid;
@@ -282,13 +260,9 @@ body{
     font-size:13px;
 }
 
-/* FULL */
-
 .full{
     grid-column:1/-1;
 }
-
-/* TIMELINE */
 
 .timeline{
     position:relative;
@@ -336,8 +310,6 @@ body{
     margin-top:4px;
 }
 
-/* DELIVERY */
-
 .delivery{
     background:#172033;
     color:#fff;
@@ -350,22 +322,29 @@ body{
 }
 
 .delivery h2{
-    font-size:20px;
+    font-size:21px;
 }
 
 .delivery-date{
     margin-top:10px;
-    font-size:17px;
+    font-size:18px;
     font-weight:bold;
 }
 
-.delivery-note{
+.delivery-time{
     margin-top:7px;
-    color:#cbd5e1;
-    font-size:12px;
+    font-size:15px;
+    color:#e2e8f0;
 }
 
-/* FOOTER */
+.delivery-address{
+    margin-top:15px;
+    padding-top:15px;
+    border-top:1px solid #334155;
+    color:#cbd5e1;
+    font-size:12px;
+    line-height:1.5;
+}
 
 footer{
     text-align:center;
@@ -374,22 +353,7 @@ footer{
     font-size:11px;
 }
 
-/* ERROR */
-
-.error{
-    display:none;
-    color:#fecaca;
-    font-size:12px;
-    margin-top:10px;
-}
-
-/* MOBILE */
-
 @media(max-width:700px){
-
-    .topbar{
-        padding:16px 5%;
-    }
 
     .top-status{
         display:none;
@@ -439,15 +403,13 @@ footer{
     }
 
     .line{
-        min-width:35px;
+        min-width:30px;
     }
 }
 </style>
 </head>
 
 <body>
-
-<!-- HEADER -->
 
 <div class="topbar">
 
@@ -462,26 +424,21 @@ footer{
 </div>
 
 <div class="demo">
-  STATUS / PREVIEW — tracking interface. This real courier record.
+    STATUS / PREVIEW — Real tracking interface. This a real courier record.
 </div>
 
-
 <div class="wrapper">
-
-    <!-- HERO -->
 
     <div class="hero">
 
         <h1>Track Your Parcel</h1>
 
         <p>
-            Enter your registered mobile number to view the Real shipment details.
+            Enter your registered mobile number to view the demo shipment details.
         </p>
 
     </div>
 
-
-    <!-- SEARCH -->
 
     <div class="search">
 
@@ -505,18 +462,13 @@ footer{
         </div>
 
         <div class="error" id="error">
-            Real shipment found for this number.
+            Your shipment found for Your Mobile number.
         </div>
 
     </div>
 
 
-    <!-- RESULT -->
-
     <div class="result" id="result">
-
-
-        <!-- STATUS -->
 
         <div class="status-header">
 
@@ -542,7 +494,7 @@ footer{
         <div class="grid">
 
 
-            <!-- ROUTE CARD -->
+            <!-- ROUTE -->
 
             <div class="card">
 
@@ -553,25 +505,18 @@ footer{
                 <div class="route">
 
                     <div class="location">
-
                         <small>ORIGIN</small>
-
                         <strong>Delhi Shop</strong>
-
                     </div>
 
                     <div class="line"></div>
 
                     <div class="location">
-
                         <small>DESTINATION</small>
-
                         <strong>Ahmedabad</strong>
-
                     </div>
 
                 </div>
-
 
                 <div class="distance">
 
@@ -581,7 +526,7 @@ footer{
 
                     <p>
                         Parcel has travelled over 100 kilometres
-                        from the Delhi shop
+                        from the Delhi shop.
                     </p>
 
                 </div>
@@ -589,7 +534,7 @@ footer{
             </div>
 
 
-            <!-- CUSTOMER CARD -->
+            <!-- CUSTOMER -->
 
             <div class="card">
 
@@ -600,46 +545,23 @@ footer{
                 <div class="customer-grid">
 
                     <div class="info">
-
                         <small>NAME</small>
-
-                        <strong>
-                            Daksh Dangia
-                        </strong>
-
+                        <strong>Daksh Dangia</strong>
                     </div>
 
-
                     <div class="info">
-
                         <small>MOBILE</small>
-
-                        <strong>
-                            8141857180
-                        </strong>
-
+                        <strong>8141857180</strong>
                     </div>
 
-
                     <div class="info">
-
                         <small>FLAT / BLOCK</small>
-
-                        <strong>
-                            CD Block
-                        </strong>
-
+                        <strong>CD Block</strong>
                     </div>
 
-
                     <div class="info">
-
                         <small>CITY</small>
-
-                        <strong>
-                            Ahmedabad
-                        </strong>
-
+                        <strong>Ahmedabad</strong>
                     </div>
 
                 </div>
@@ -647,7 +569,7 @@ footer{
             </div>
 
 
-            <!-- JOURNEY -->
+            <!-- SHIPMENT UPDATES -->
 
             <div class="card full">
 
@@ -662,15 +584,8 @@ footer{
                         <div class="circle"></div>
 
                         <div>
-
-                            <h4>
-                                Order Confirmed
-                            </h4>
-
-                            <p>
-                                15 September 2026
-                            </p>
-
+                            <h4>Order Confirmed</h4>
+                            <p>15 September 2026</p>
                         </div>
 
                     </div>
@@ -681,15 +596,8 @@ footer{
                         <div class="circle"></div>
 
                         <div>
-
-                            <h4>
-                                Parcel Dispatched
-                            </h4>
-
-                            <p>
-                                Shipment departed from Delhi shop
-                            </p>
-
+                            <h4>Parcel Dispatched</h4>
+                            <p>Shipment departed from Delhi shop</p>
                         </div>
 
                     </div>
@@ -700,16 +608,8 @@ footer{
                         <div class="circle"></div>
 
                         <div>
-
-                            <h4>
-                                In Transit
-                            </h4>
-
-                            <p>
-                                Parcel has travelled 100+ KM
-                                from the origin location
-                            </p>
-
+                            <h4>In Transit</h4>
+                            <p>Parcel has travelled 100+ KM from Delhi</p>
                         </div>
 
                     </div>
@@ -732,11 +632,17 @@ footer{
                 </h2>
 
                 <div class="delivery-date">
-                    21 September 2026
+                    19 September 2026
                 </div>
 
-                <div class="delivery-note">
-                    Estimated delivery date — Realistic 
+                <div class="delivery-time">
+                    🕛 Between 12:00 PM – 2:00 PM
+                </div>
+
+                <div class="delivery-address">
+                    Delivery Location:<br>
+                    Customer Home Address — CD Block,<br>
+                    Ahmedabad, India
                 </div>
 
             </div>
@@ -750,10 +656,8 @@ footer{
 
 
 <footer>
-
     © 2026 Premium Gift Store<br>
-     Parcel Tracking System
-
+    GIFT 🎁 Parcel Tracking System
 </footer>
 
 
@@ -793,11 +697,9 @@ function trackParcel(){
 }
 
 
-/* ENTER KEY */
-
 document
 .getElementById("mobile")
-.addEventListener("keypress", function(e){
+.addEventListener("keypress",function(e){
 
     if(e.key === "Enter"){
         trackParcel();
@@ -808,4 +710,4 @@ document
 </script>
 
 </body>
-  </html>
+    </html>
