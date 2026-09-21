@@ -1,8 +1,7 @@
 <!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Gift Gallery | Tracking SYSTEM</title><style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The Gift Gallery | Parcel Tracking Demo</title><style>
 *{
   margin:0;
   padding:0;
@@ -17,8 +16,8 @@ body{
 
 .header{
   background:#111827;
-  color:white;
-  padding:24px 15px;
+  color:#fff;
+  padding:23px 15px;
   text-align:center;
 }
 
@@ -33,7 +32,7 @@ body{
   font-size:13px;
 }
 
-.demo{
+.demo-banner{
   background:#fff7ed;
   color:#9a3412;
   text-align:center;
@@ -49,7 +48,7 @@ body{
 }
 
 .card{
-  background:white;
+  background:#fff;
   border-radius:15px;
   padding:23px;
   box-shadow:0 5px 20px rgba(0,0,0,.08);
@@ -73,6 +72,7 @@ input{
   border-radius:8px;
   font-size:15px;
   margin-bottom:12px;
+  outline:none;
 }
 
 button{
@@ -81,7 +81,7 @@ button{
   border:0;
   border-radius:8px;
   background:#111827;
-  color:white;
+  color:#fff;
   font-size:16px;
   font-weight:bold;
   cursor:pointer;
@@ -156,7 +156,7 @@ button{
 }
 
 .route h3{
-  margin-bottom:18px;
+  margin-bottom:20px;
   font-size:17px;
 }
 
@@ -164,7 +164,7 @@ button{
   display:flex;
   gap:13px;
   position:relative;
-  padding-bottom:20px;
+  padding-bottom:23px;
 }
 
 .step:last-child{
@@ -189,7 +189,7 @@ button{
   position:absolute;
   left:6px;
   top:17px;
-  height:30px;
+  height:35px;
   border-left:2px dashed #cbd5e1;
 }
 
@@ -203,6 +203,12 @@ button{
   color:#6b7280;
   font-size:12px;
   margin-top:4px;
+  line-height:1.4;
+}
+
+.current-text{
+  color:#047857 !important;
+  font-weight:bold;
 }
 
 /* DELIVERY */
@@ -293,8 +299,8 @@ footer{
 </style></head><body><div class="header">
   <h1>THE GIFT GALLERY</h1>
   <p>Parcel Tracking & Delivery Information</p>
-</div><div class="demo">
-  REAL TRACKING PAGE — FOR REALISTIC USE ONLY
+</div><div class="demo-banner">
+ TRACKING PAGE — FOR REALLY ONLY
 </div><div class="container">  <!-- SEARCH -->  <div class="card search"><h2>Track Your Parcel</h2>
 
 <p>
@@ -318,12 +324,12 @@ footer{
   </div>  <!-- RESULT -->  <div id="result"><div class="card">
 
   <div class="status">
-    ✓ OUT FOR DELIVERY
+    ✓ DISPATCHED — IN TRANSIT
   </div>
 
   <div class="tracking">
     Tracking ID:
-    <strong>TGG-KTM-230926-7842</strong>
+    <strong>TGG-GUJ-230926-7842</strong>
   </div>
 
   <!-- CUSTOMER DETAILS -->
@@ -341,12 +347,12 @@ footer{
     </div>
 
     <div class="row">
-      <span class="label">City</span>
+      <span class="label">Destination City</span>
       <span class="value">Kottayam</span>
     </div>
 
     <div class="row">
-      <span class="label">State</span>
+      <span class="label">Destination State</span>
       <span class="value">Kerala</span>
     </div>
 
@@ -362,40 +368,20 @@ footer{
 
   </div>
 
-  <!-- PARCEL ROUTE -->
+  <!-- ROUTE -->
 
   <div class="route">
 
     <h3>📍 Parcel Route</h3>
 
-    <div class="step">
-      <div class="dot"></div>
-
-      <div>
-        <strong>Parcel Booked</strong>
-        <small>Delhi — Shipment registered</small>
-      </div>
-
-      <div class="line"></div>
-    </div>
-
-    <div class="step">
-      <div class="dot"></div>
-
-      <div>
-        <strong>In Transit</strong>
-        <small>Delhi → Kerala — Parcel dispatched</small>
-      </div>
-
-      <div class="line"></div>
-    </div>
-
     <div class="step current">
       <div class="dot"></div>
 
       <div>
-        <strong>Current Location</strong>
-        <small>Kottayam, Kerala — Local delivery route</small>
+        <strong>Gujarat — Dispatched</strong>
+        <small class="current-text">
+          Parcel has departed from Gujarat
+        </small>
       </div>
 
       <div class="line"></div>
@@ -405,8 +391,62 @@ footer{
       <div class="dot"></div>
 
       <div>
-        <strong>Next</strong>
-        <small>Customer delivery address</small>
+        <strong>Maharashtra — Transit</strong>
+        <small>
+          Next transit region
+        </small>
+      </div>
+
+      <div class="line"></div>
+    </div>
+
+    <div class="step">
+      <div class="dot"></div>
+
+      <div>
+        <strong>Karnataka — Transit</strong>
+        <small>
+          Southern delivery corridor
+        </small>
+      </div>
+
+      <div class="line"></div>
+    </div>
+
+    <div class="step">
+      <div class="dot"></div>
+
+      <div>
+        <strong>Kerala — Arrival</strong>
+        <small>
+          Parcel entering destination state
+        </small>
+      </div>
+
+      <div class="line"></div>
+    </div>
+
+    <div class="step">
+      <div class="dot"></div>
+
+      <div>
+        <strong>Kottayam Local Hub</strong>
+        <small>
+          Final-mile processing
+        </small>
+      </div>
+
+      <div class="line"></div>
+    </div>
+
+    <div class="step">
+      <div class="dot"></div>
+
+      <div>
+        <strong>Customer Address</strong>
+        <small>
+          Expected final delivery
+        </small>
       </div>
     </div>
 
@@ -432,27 +472,25 @@ footer{
 
   <div class="charge">
 
-    <h3>State Verification Charge — Real</h3>
+    <h3>State Verification Charge — Pay Now</h3>
 
     <div class="amount">
       ₹3,296.90
     </div>
 
-    <p>
-      Real ONLY — This amount is real payment
-      request and should not be paid through this page.
+    <
     </p>
 
   </div>
 
   <div class="note">
-    Parcel tracking information shown for Tracking purposes only.
+    Parcel tracking information shown for Realistic purposes only.
   </div>
 
 </div>
 
   </div></div><footer>
-  © 2026 The Gift Gallery.  Tracking Page.
+  © 2026 The Gift Gallery. Tracking Page.
 </footer><script>
 
 function trackParcel(){
@@ -470,7 +508,7 @@ function trackParcel(){
     document.getElementById("error");
 
   const correctID =
-    "TGG-KTM-230926-7842";
+    "TGG-GUJ-230926-7842";
 
   if(input === correctID){
 
