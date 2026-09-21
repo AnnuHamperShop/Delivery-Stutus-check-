@@ -3,90 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Premium Hamper Gifts - Tracking</title>
+
+  <title>The Gift Gallery | Parcel Tracking</title>
 
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
       font-family: Arial, sans-serif;
     }
 
     body {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #fff1f8, #f4e8ff);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
+      background: #f4f6f9;
+      color: #222;
+    }
+
+    .header {
+      background: #111827;
+      color: white;
+      padding: 22px 18px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 25px;
+      letter-spacing: 1px;
+    }
+
+    .header p {
+      margin-top: 6px;
+      color: #cbd5e1;
+      font-size: 13px;
     }
 
     .container {
-      width: 100%;
-      max-width: 480px;
+      max-width: 650px;
+      margin: 35px auto;
+      padding: 0 15px;
     }
 
-    .card {
+    .search-box {
       background: white;
-      border-radius: 25px;
-      padding: 28px 22px;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     }
 
-    .logo {
-      width: 75px;
-      height: 75px;
-      margin: auto;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #ff4f9a, #8e44ad);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 35px;
-    }
-
-    h1 {
-      text-align: center;
-      margin-top: 12px;
-      color: #8e44ad;
-      font-size: 25px;
-    }
-
-    .subtitle {
-      text-align: center;
-      color: #777;
-      margin: 7px 0 25px;
-      font-size: 14px;
-    }
-
-    label {
-      display: block;
-      font-weight: bold;
+    .search-box h2 {
       margin-bottom: 8px;
-      color: #444;
+      font-size: 21px;
+    }
+
+    .search-box p {
+      color: #6b7280;
+      font-size: 14px;
+      margin-bottom: 18px;
     }
 
     input {
       width: 100%;
       padding: 14px;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      font-size: 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 15px;
       outline: none;
-    }
-
-    input:focus {
-      border-color: #a64ac9;
+      margin-bottom: 12px;
     }
 
     button {
       width: 100%;
-      margin-top: 14px;
       padding: 14px;
       border: none;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #ff4f9a, #8e44ad);
+      border-radius: 8px;
+      background: #111827;
       color: white;
       font-size: 16px;
       font-weight: bold;
@@ -94,235 +84,269 @@
     }
 
     button:hover {
-      opacity: 0.9;
+      background: #1f2937;
     }
 
     #result {
       display: none;
-      margin-top: 25px;
+      margin-top: 22px;
+    }
+
+    .status-card {
+      background: white;
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     }
 
     .status {
-      background: #fff4df;
-      color: #c56b00;
+      background: #ecfdf5;
+      color: #047857;
       padding: 12px;
-      border-radius: 12px;
+      border-radius: 8px;
       text-align: center;
       font-weight: bold;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
+    }
+
+    .tracking-id {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 20px;
+    }
+
+    .tracking-id strong {
+      color: #111827;
+      font-size: 15px;
     }
 
     .details {
-      background: #fafafa;
-      border-radius: 15px;
-      padding: 17px;
+      border-top: 1px solid #e5e7eb;
     }
 
     .row {
       display: flex;
       justify-content: space-between;
       gap: 15px;
-      padding: 11px 0;
-      border-bottom: 1px solid #eee;
-    }
-
-    .row:last-child {
-      border-bottom: none;
-    }
-
-    .title {
-      color: #777;
+      padding: 13px 0;
+      border-bottom: 1px solid #e5e7eb;
       font-size: 14px;
+    }
+
+    .label {
+      color: #6b7280;
     }
 
     .value {
+      font-weight: 600;
       text-align: right;
-      font-weight: bold;
-      color: #333;
-      font-size: 14px;
     }
 
-    .timeline {
+    .delivery {
       margin-top: 20px;
-    }
-
-    .timeline h3 {
-      color: #8e44ad;
-      margin-bottom: 14px;
-    }
-
-    .step {
-      position: relative;
-      padding: 0 0 18px 28px;
-      color: #555;
-    }
-
-    .step::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: #8e44ad;
-      color: white;
-      font-size: 12px;
+      padding: 18px;
+      border-radius: 10px;
+      background: #f9fafb;
       text-align: center;
-      line-height: 20px;
+    }
+
+    .delivery h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .delivery-date {
+      font-size: 20px;
+      font-weight: bold;
+      color: #111827;
+    }
+
+    .delivery-time {
+      margin-top: 5px;
+      color: #6b7280;
+    }
+
+    .demo-note {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 11px;
+      color: #9ca3af;
     }
 
     .error {
       display: none;
       margin-top: 15px;
       padding: 12px;
-      background: #ffecec;
-      color: #c0392b;
-      border-radius: 10px;
+      background: #fef2f2;
+      color: #b91c1c;
+      border-radius: 8px;
       text-align: center;
       font-size: 14px;
     }
 
-    .demo {
+    footer {
       text-align: center;
-      margin-top: 18px;
-      font-size: 11px;
-      color: #999;
+      margin: 30px 0;
+      color: #9ca3af;
+      font-size: 12px;
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        margin-top: 20px;
+      }
+
+      .header h1 {
+        font-size: 21px;
+      }
+
+      .row {
+        font-size: 13px;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <div class="header">
+    <h1>THE GIFT GALLERY</h1>
+    <p>Parcel Tracking & Delivery Information</p>
+  </div>
+
   <div class="container">
-    <div class="card">
 
-      <div class="logo">🎁</div>
-
-      <h1>Premium Hamper Gifts</h1>
-      <p class="subtitle">Track Your Hamper Delivery</p>
-
-      <label for="mobile">Enter Registered Mobile Number</label>
+    <div class="search-box">
+      <h2>Track Your Parcel</h2>
+      <p>Enter your tracking ID to view the delivery details.</p>
 
       <input
-        type="tel"
-        id="mobile"
-        placeholder="Enter mobile number"
-        maxlength="15"
+        type="text"
+        id="trackingInput"
+        placeholder="Enter Tracking ID"
       >
 
-      <button onclick="trackOrder()">🔍 Track My Order</button>
+      <button onclick="trackParcel()">Track Order</button>
 
-      <div id="error" class="error">
-        ❌ Order not found. Please check your mobile number.
+      <div class="error" id="error">
+        Tracking ID not found. Please check and try again.
       </div>
+    </div>
 
-      <div id="result">
+    <div id="result">
+
+      <div class="status-card">
 
         <div class="status">
-          🚚 DELIVERY SCHEDULED
+          ✓ OUT FOR DELIVERY
+        </div>
+
+        <div class="tracking-id">
+          Tracking ID:
+          <strong>TGG-KTM-230926-7842</strong>
         </div>
 
         <div class="details">
 
           <div class="row">
-            <span class="title">Customer Name</span>
-            <span class="value">Sourabh</span>
+            <span class="label">Customer Name</span>
+            <span class="value">Jesnamol Joseph</span>
           </div>
 
           <div class="row">
-            <span class="title">Mobile</span>
-            <span class="value">+91 91657 65941</span>
+            <span class="label">Mobile Number</span>
+            <span class="value">7902799607</span>
           </div>
 
           <div class="row">
-            <span class="title">Order ID</span>
-            <span class="value">ANNU-261003-SOU</span>
+            <span class="label">City</span>
+            <span class="value">Kottayam</span>
           </div>
 
           <div class="row">
-            <span class="title">Tracking ID</span>
-            <span class="value">ANNU-TRK-826491</span>
+            <span class="label">State</span>
+            <span class="value">Kerala</span>
           </div>
 
           <div class="row">
-            <span class="title">Delivery Address</span>
-            <span class="value">
-              Bhindi bagke bihari gandad ke piche
-            </span>
+            <span class="label">PIN Code</span>
+            <span class="value">686562</span>
           </div>
 
           <div class="row">
-            <span class="title">Delivery Date</span>
-            <span class="value">3 October 2026</span>
-          </div>
-
-          <div class="row">
-            <span class="title">Delivery Time</span>
-            <span class="value">3:00 PM – 4:00 PM</span>
+            <span class="label">Country</span>
+            <span class="value">India</span>
           </div>
 
         </div>
 
-        <div class="timeline">
+        <div class="delivery">
+          <h3>Expected Delivery</h3>
 
-          <h3>📦 Delivery Updates</h3>
-
-          <div class="step">
-            Order Confirmed
+          <div class="delivery-date">
+            23 September 2026
           </div>
 
-          <div class="step">
-            Hamper Prepared
+          <div class="delivery-time">
+            Between 2:00 PM – 3:00 PM
           </div>
-
-          <div class="step">
-            Delivery Scheduled — 3 October
-          </div>
-
-          <div class="step">
-            Expected Delivery: 3:00 PM – 4:00 PM
-          </div>
-
         </div>
 
-      </div>
+        <div class="demo-note">
+        Gift Parcel tracking information — for Trace purposes only.
+        </div>
 
-      <div class="demo">
-        Annu Gifts Tracking System • Premium Hamper Gifts
       </div>
 
     </div>
+
   </div>
+
+  <footer>
+    © 2026 The Gift Gallery. All Rights Reserved.
+  </footer>
 
 
   <script>
+    function trackParcel() {
 
-    function trackOrder() {
-
-      const input = document.getElementById("mobile").value;
-
-      // Remove spaces, +91 and other symbols
-      const mobile = input.replace(/\D/g, "");
+      const input = document
+        .getElementById("trackingInput")
+        .value
+        .trim()
+        .toUpperCase();
 
       const result = document.getElementById("result");
       const error = document.getElementById("error");
 
-      result.style.display = "none";
-      error.style.display = "none";
+      const correctID = "TGG-KTM-230926-7842";
 
-      // Customer mobile number
-      if (
-        mobile === "9165765941" ||
-        mobile === "919165765941"
-      ) {
+      if (input === correctID) {
+
         result.style.display = "block";
-      } 
-      else {
+        error.style.display = "none";
+
+        result.scrollIntoView({
+          behavior: "smooth"
+        });
+
+      } else {
+
+        result.style.display = "none";
         error.style.display = "block";
+
       }
     }
 
+    document
+      .getElementById("trackingInput")
+      .addEventListener("keypress", function(event) {
+
+        if (event.key === "Enter") {
+          trackParcel();
+        }
+
+      });
   </script>
 
 </body>
