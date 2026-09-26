@@ -1,541 +1,179 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The Gift Gallery | Parcel Tracking Demo</title><style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,sans-serif;
-}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delivery Tracking - DEMO</title>
 
+<style>
 body{
-  background:#f4f6f9;
-  color:#222;
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f3f6f9;
+    color:#222;
 }
-
-.header{
-  background:#111827;
-  color:#fff;
-  padding:23px 15px;
-  text-align:center;
-}
-
-.header h1{
-  font-size:25px;
-  letter-spacing:1px;
-}
-
-.header p{
-  margin-top:6px;
-  color:#cbd5e1;
-  font-size:13px;
-}
-
-.demo-banner{
-  background:#fff7ed;
-  color:#9a3412;
-  text-align:center;
-  padding:9px;
-  font-size:12px;
-  font-weight:bold;
-}
-
 .container{
-  max-width:650px;
-  margin:30px auto;
-  padding:0 15px;
+    max-width:500px;
+    margin:30px auto;
+    padding:20px;
 }
-
 .card{
-  background:#fff;
-  border-radius:15px;
-  padding:23px;
-  box-shadow:0 5px 20px rgba(0,0,0,.08);
+    background:#fff;
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 5px 20px rgba(0,0,0,.10);
 }
-
-.search h2{
-  font-size:21px;
-  margin-bottom:7px;
+.header{
+    text-align:center;
+    border-bottom:1px solid #eee;
+    padding-bottom:18px;
 }
-
-.search p{
-  color:#6b7280;
-  font-size:14px;
-  margin-bottom:18px;
+.header h1{
+    margin:5px 0;
+    font-size:25px;
 }
-
-input{
-  width:100%;
-  padding:14px;
-  border:1px solid #d1d5db;
-  border-radius:8px;
-  font-size:15px;
-  margin-bottom:12px;
-  outline:none;
+.demo{
+    display:inline-block;
+    background:#fff3cd;
+    color:#856404;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
 }
-
-button{
-  width:100%;
-  padding:14px;
-  border:0;
-  border-radius:8px;
-  background:#111827;
-  color:#fff;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-#error{
-  display:none;
-  margin-top:14px;
-  padding:12px;
-  border-radius:8px;
-  background:#fef2f2;
-  color:#b91c1c;
-  text-align:center;
-  font-size:13px;
-}
-
-#result{
-  display:none;
-  margin-top:22px;
-}
-
-.status{
-  background:#ecfdf5;
-  color:#047857;
-  padding:13px;
-  border-radius:9px;
-  text-align:center;
-  font-weight:bold;
-  margin-bottom:20px;
-}
-
-.tracking{
-  color:#6b7280;
-  font-size:13px;
-  margin-bottom:18px;
-}
-
-.tracking strong{
-  color:#111827;
-  font-size:15px;
-}
-
-.details{
-  border-top:1px solid #e5e7eb;
-}
-
-.row{
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  padding:13px 0;
-  border-bottom:1px solid #e5e7eb;
-  font-size:14px;
-}
-
-.label{
-  color:#6b7280;
-}
-
-.value{
-  font-weight:bold;
-  text-align:right;
-}
-
-/* ROUTE */
-
-.route{
-  margin-top:22px;
-  background:#f9fafb;
-  padding:20px;
-  border-radius:11px;
-}
-
-.route h3{
-  margin-bottom:20px;
-  font-size:17px;
-}
-
-.step{
-  display:flex;
-  gap:13px;
-  position:relative;
-  padding-bottom:23px;
-}
-
-.step:last-child{
-  padding-bottom:0;
-}
-
-.dot{
-  width:14px;
-  height:14px;
-  background:#111827;
-  border-radius:50%;
-  flex-shrink:0;
-  margin-top:3px;
-}
-
-.step.current .dot{
-  background:#059669;
-  box-shadow:0 0 0 5px #d1fae5;
-}
-
-.line{
-  position:absolute;
-  left:6px;
-  top:17px;
-  height:35px;
-  border-left:2px dashed #cbd5e1;
-}
-
-.step strong{
-  display:block;
-  font-size:14px;
-}
-
-.step small{
-  display:block;
-  color:#6b7280;
-  font-size:12px;
-  margin-top:4px;
-  line-height:1.4;
-}
-
-.current-text{
-  color:#047857 !important;
-  font-weight:bold;
-}
-
-/* DELIVERY */
-
-.delivery{
-  margin-top:20px;
-  padding:18px;
-  border-radius:10px;
-  background:#f9fafb;
-  text-align:center;
-}
-
-.delivery h3{
-  font-size:17px;
-  margin-bottom:8px;
-}
-
-.date{
-  font-size:20px;
-  font-weight:bold;
-}
-
-.time{
-  margin-top:5px;
-  color:#6b7280;
-}
-
-/* DEMO CHARGE */
-
-.charge{
-  margin-top:20px;
-  padding:18px;
-  border-radius:10px;
-  background:#fff7ed;
-  border:1px solid #fed7aa;
-}
-
-.charge h3{
-  color:#9a3412;
-  font-size:16px;
-  margin-bottom:8px;
-}
-
-.amount{
-  font-size:23px;
-  font-weight:bold;
-}
-
-.charge p{
-  margin-top:8px;
-  color:#9a3412;
-  font-size:11px;
-  line-height:1.5;
-}
-
-.note{
-  text-align:center;
-  margin-top:18px;
-  color:#9ca3af;
-  font-size:11px;
-}
-
-footer{
-  text-align:center;
-  margin:30px 0;
-  color:#9ca3af;
-  font-size:12px;
-}
-
-@media(max-width:500px){
-
-  .header h1{
-    font-size:21px;
-  }
-
-  .container{
+.info{
     margin-top:20px;
-  }
-
-  .card{
-    padding:18px;
-  }
-
-  .row{
+}
+.row{
+    padding:10px 0;
+    border-bottom:1px solid #eee;
+}
+.label{
+    color:#777;
     font-size:13px;
-  }
 }
-</style></head><body><div class="header">
-  <h1>THE GIFT GALLERY</h1>
-  <p>Parcel Tracking & Delivery Information</p>
-</div><div class="demo-banner">
- TRACKING PAGE — FOR REALLY ONLY
-</div><div class="container">  <!-- SEARCH -->  <div class="card search"><h2>Track Your Parcel</h2>
+.value{
+    font-weight:bold;
+    margin-top:4px;
+}
+.status{
+    margin-top:22px;
+    background:#e8f7ee;
+    color:#168044;
+    padding:15px;
+    border-radius:12px;
+    font-weight:bold;
+    text-align:center;
+}
+.timeline{
+    margin-top:25px;
+}
+.step{
+    position:relative;
+    padding:0 0 25px 35px;
+    border-left:3px solid #19a463;
+}
+.step:last-child{
+    border-left:0;
+}
+.dot{
+    position:absolute;
+    left:-9px;
+    top:0;
+    width:15px;
+    height:15px;
+    background:#19a463;
+    border-radius:50%;
+}
+.step h3{
+    margin:0;
+    font-size:16px;
+}
+.step p{
+    margin:5px 0 0;
+    color:#666;
+    font-size:13px;
+}
+.footer{
+    text-align:center;
+    margin-top:20px;
+    color:#888;
+    font-size:12px;
+}
+</style>
+</head>
 
-<p>
-  Enter your tracking ID to view parcel status and route.
-</p>
+<body>
 
-<input
-  type="text"
-  id="trackingInput"
-  placeholder="Enter Tracking ID"
->
+<div class="container">
+<div class="card">
 
-<button onclick="trackParcel()">
-  Track Order
-</button>
-
-<div id="error">
-  Tracking ID not found. Please check and try again.
+<div class="header">
+<span class="demo">DEMO TRACKING</span>
+<h1>Delivery Tracking</h1>
+<p>Order Status</p>
 </div>
 
-  </div>  <!-- RESULT -->  <div id="result"><div class="card">
+<div class="info">
 
-  <div class="status">
-    ✓ DISPATCHED — IN TRANSIT
-  </div>
+<div class="row">
+<div class="label">Customer Name</div>
+<div class="value">Varun</div>
+</div>
 
-  <div class="tracking">
-    Tracking ID:
-    <strong>TGG-GUJ-230926-7842</strong>
-  </div>
+<div class="row">
+<div class="label">Mobile Number</div>
+<div class="value">9381068605</div>
+</div>
 
-  <!-- CUSTOMER DETAILS -->
-
-  <div class="details">
-
-    <div class="row">
-      <span class="label">Customer Name</span>
-      <span class="value">Jesnamol Joseph</span>
-    </div>
-
-    <div class="row">
-      <span class="label">Mobile Number</span>
-      <span class="value">7902799607</span>
-    </div>
-
-    <div class="row">
-      <span class="label">Destination City</span>
-      <span class="value">Kottayam</span>
-    </div>
-
-    <div class="row">
-      <span class="label">Destination State</span>
-      <span class="value">Kerala</span>
-    </div>
-
-    <div class="row">
-      <span class="label">PIN Code</span>
-      <span class="value">686562</span>
-    </div>
-
-    <div class="row">
-      <span class="label">Country</span>
-      <span class="value">India</span>
-    </div>
-
-  </div>
-
-  <!-- ROUTE -->
-
-  <div class="route">
-
-    <h3>📍 Parcel Route</h3>
-
-    <div class="step current">
-      <div class="dot"></div>
-
-      <div>
-        <strong>Gujarat — Dispatched</strong>
-        <small class="current-text">
-          Parcel has departed from Gujarat
-        </small>
-      </div>
-
-      <div class="line"></div>
-    </div>
-
-    <div class="step">
-      <div class="dot"></div>
-
-      <div>
-        <strong>Maharashtra — Transit</strong>
-        <small>
-          Next transit region
-        </small>
-      </div>
-
-      <div class="line"></div>
-    </div>
-
-    <div class="step">
-      <div class="dot"></div>
-
-      <div>
-        <strong>Karnataka — Transit</strong>
-        <small>
-          Southern delivery corridor
-        </small>
-      </div>
-
-      <div class="line"></div>
-    </div>
-
-    <div class="step">
-      <div class="dot"></div>
-
-      <div>
-        <strong>Kerala — Arrival</strong>
-        <small>
-          Parcel entering destination state
-        </small>
-      </div>
-
-      <div class="line"></div>
-    </div>
-
-    <div class="step">
-      <div class="dot"></div>
-
-      <div>
-        <strong>Kottayam Local Hub</strong>
-        <small>
-          Final-mile processing
-        </small>
-      </div>
-
-      <div class="line"></div>
-    </div>
-
-    <div class="step">
-      <div class="dot"></div>
-
-      <div>
-        <strong>Customer Address</strong>
-        <small>
-          Expected final delivery
-        </small>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- DELIVERY -->
-
-  <div class="delivery">
-
-    <h3>Expected Delivery</h3>
-
-    <div class="date">
-      23 September 2026
-    </div>
-
-    <div class="time">
-      Between 2:00 PM – 3:00 PM
-    </div>
-
-  </div>
-
-  <!-- DEMO CHARGE -->
-
-  <div class="charge">
-
-    <h3>State Verification Charge — Pay Now</h3>
-
-    <div class="amount">
-      ₹3,296.90
-    </div>
-
-    <
-    </p>
-
-  </div>
-
-  <div class="note">
-    Parcel tracking information shown for Realistic purposes only.
-  </div>
+<div class="row">
+<div class="label">Delivery Address</div>
+<div class="value">
+Bhusarapu Vari Ramalayam,<br>
+Khandavalli
+</div>
+</div>
 
 </div>
 
-  </div></div><footer>
-  © 2026 The Gift Gallery. Tracking Page.
-</footer><script>
+<div class="status">
+📦 Shipment In Transit
+</div>
 
-function trackParcel(){
+<div class="timeline">
 
-  const input =
-    document.getElementById("trackingInput")
-    .value
-    .trim()
-    .toUpperCase();
+<div class="step">
+<div class="dot"></div>
+<h3>Order Confirmed</h3>
+<p>Shipment has been confirmed.</p>
+</div>
 
-  const result =
-    document.getElementById("result");
+<div class="step">
+<div class="dot"></div>
+<h3>Dispatched</h3>
+<p>Shipment dispatched from Delhi shop.</p>
+</div>
 
-  const error =
-    document.getElementById("error");
+<div class="step">
+<div class="dot"></div>
+<h3>In Transit</h3>
+<p>Order status: Shipment has travelled approximately 100 KM from Delhi shop.</p>
+</div>
 
-  const correctID =
-    "TGG-GUJ-230926-7842";
+<div class="step">
+<div class="dot"></div>
+<h3>Expected Delivery</h3>
+<p><b>28 September 2026</b></p>
+</div>
 
-  if(input === correctID){
+</div>
 
-    result.style.display = "block";
-    error.style.display = "none";
+<div class="footer">
+This page is a tracking template and is an official courier tracking system.
+</div>
 
-    result.scrollIntoView({
-      behavior:"smooth"
-    });
+</div>
+</div>
 
-  }else{
-
-    result.style.display = "none";
-    error.style.display = "block";
-
-  }
-}
-
-document
-.getElementById("trackingInput")
-.addEventListener("keypress", function(event){
-
-  if(event.key === "Enter"){
-    trackParcel();
-  }
-
-});
-
-</script></body>
-</html>
+</body>
+  </html>
