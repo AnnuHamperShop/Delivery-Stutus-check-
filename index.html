@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DEV PET LOVER'S | Order Tracking</title>
+<title>Premium Gifts Shop | Order Tracking</title>
 
 <style>
 *{
@@ -14,7 +14,7 @@
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
     background:linear-gradient(135deg,#07111f,#10243d);
     min-height:100vh;
     color:#172033;
@@ -27,7 +27,6 @@ body{
     padding:22px 16px 35px;
 }
 
-/* Header */
 .header{
     text-align:center;
     color:white;
@@ -50,7 +49,6 @@ body{
 .header h1{
     margin-top:15px;
     font-size:26px;
-    letter-spacing:.5px;
 }
 
 .header p{
@@ -59,9 +57,8 @@ body{
     font-size:14px;
 }
 
-/* Main card */
 .card{
-    background:rgba(255,255,255,.97);
+    background:#fff;
     border-radius:24px;
     padding:24px;
     box-shadow:0 20px 50px rgba(0,0,0,.25);
@@ -77,10 +74,8 @@ body{
     color:#9a6700;
     font-size:11px;
     font-weight:bold;
-    letter-spacing:.5px;
 }
 
-/* Search */
 .search-title{
     text-align:center;
     font-size:19px;
@@ -117,15 +112,6 @@ body{
     font-weight:800;
     cursor:pointer;
     box-shadow:0 7px 18px rgba(0,114,255,.3);
-    transition:.2s;
-}
-
-.track-btn:hover{
-    transform:translateY(-2px);
-}
-
-.track-btn:active{
-    transform:scale(.97);
 }
 
 .example{
@@ -135,7 +121,6 @@ body{
     margin-top:11px;
 }
 
-/* Result */
 .result{
     margin-top:20px;
     display:none;
@@ -188,12 +173,11 @@ body{
     line-height:1.4;
 }
 
-/* Current status */
 .current-status{
     margin-top:18px;
     padding:16px;
     border-radius:16px;
-    background:linear-gradient(135deg,#e8fff2,#f2fff8);
+    background:#e8fff2;
     border:1px solid #c9f2da;
     display:flex;
     align-items:center;
@@ -225,7 +209,6 @@ body{
     font-size:14px;
 }
 
-/* Timeline */
 .timeline{
     margin-top:25px;
 }
@@ -273,7 +256,6 @@ body{
     line-height:1.5;
 }
 
-/* Error */
 .error{
     display:none;
     margin-top:13px;
@@ -285,7 +267,6 @@ body{
     font-size:13px;
 }
 
-/* Footer */
 .footer{
     text-align:center;
     color:#8fa1b5;
@@ -294,7 +275,6 @@ body{
     margin-top:20px;
 }
 
-/* Mobile */
 @media(max-width:400px){
     .search-box{
         flex-direction:column;
@@ -302,10 +282,6 @@ body{
 
     .track-btn{
         min-height:48px;
-    }
-
-    .header h1{
-        font-size:23px;
     }
 }
 </style>
@@ -316,17 +292,20 @@ body{
 <div class="container">
 
     <div class="header">
-        <div class="logo">📦</div>
 
-        <h1>DEV PET LOVER'S</h1>
+        <div class="logo">🎁</div>
+
+        <h1>Premium Gifts Shop</h1>
 
         <p>Fast & Secure Order Tracking</p>
-    </div>
 
+    </div>
 
     <div class="card">
 
-        <span class="badge">DEMO TRACKING SYSTEM</span>
+        <span class="badge">
+            DEMO TRACKING SYSTEM
+        </span>
 
         <div class="search-title">
             Track Your Order
@@ -341,7 +320,9 @@ body{
                 autocomplete="off"
             >
 
-            <button class="track-btn" onclick="trackOrder()">
+            <button
+                class="track-btn"
+                onclick="trackOrder()">
                 TRACK ORDER
             </button>
 
@@ -353,20 +334,18 @@ body{
 
         <div id="error" class="error"></div>
 
-
-        <!-- ORDER RESULT -->
-
         <div id="result" class="result">
 
             <div class="order-header">
 
                 <h2>Order Details</h2>
 
-                <span class="order-id" id="orderNo">
+                <span
+                    class="order-id"
+                    id="orderNo">
                 </span>
 
             </div>
-
 
             <div class="info">
 
@@ -387,27 +366,27 @@ body{
 
             </div>
 
-
             <div class="current-status">
 
-                <div class="status-icon">
-                    🚚
-                </div>
+                <div class="status-icon">🚚</div>
 
                 <div class="status-text">
+
                     <small>CURRENT STATUS</small>
-                    <strong>Shipment In Transit</strong>
+
+                    <strong>
+                        Shipment In Transit
+                    </strong>
+
                 </div>
 
             </div>
-
 
             <div class="timeline">
 
                 <div class="timeline-title">
                     Shipment Progress
                 </div>
-
 
                 <div class="step">
 
@@ -421,7 +400,6 @@ body{
 
                 </div>
 
-
                 <div class="step">
 
                     <div class="dot"></div>
@@ -434,7 +412,6 @@ body{
 
                 </div>
 
-
                 <div class="step">
 
                     <div class="dot"></div>
@@ -442,12 +419,11 @@ body{
                     <h3>In Transit</h3>
 
                     <p>
-                        Demo shipment is approximately 100 KM
-                        from the Delhi shop.
+                        Demo shipment is approximately
+                        100 KM from the Delhi shop.
                     </p>
 
                 </div>
-
 
                 <div class="step">
 
@@ -468,14 +444,12 @@ body{
 
     </div>
 
-
     <div class="footer">
         DEMO ONLY — This page is a demonstration tracking interface
         and is not an official courier tracking system.
     </div>
 
 </div>
-
 
 <script>
 
@@ -494,7 +468,6 @@ const orders = {
 
 };
 
-
 function trackOrder(){
 
     const input =
@@ -509,11 +482,8 @@ function trackOrder(){
     const error =
     document.getElementById("error");
 
-
     result.style.display = "none";
-
     error.style.display = "none";
-
 
     if(orderNumber === ""){
 
@@ -525,10 +495,8 @@ function trackOrder(){
         return;
     }
 
-
     const order =
     orders[orderNumber];
-
 
     if(!order){
 
@@ -540,22 +508,17 @@ function trackOrder(){
         return;
     }
 
-
     document.getElementById("orderNo")
     .textContent = orderNumber;
-
 
     document.getElementById("customer")
     .textContent = order.customer;
 
-
     document.getElementById("mobile")
     .textContent = order.mobile;
 
-
     document.getElementById("address")
     .textContent = order.address;
-
 
     result.style.display = "block";
 
@@ -563,18 +526,14 @@ function trackOrder(){
         behavior:"smooth",
         block:"start"
     });
-
 }
-
 
 document
 .getElementById("orderInput")
-.addEventListener("keydown", function(event){
+.addEventListener("keydown",function(event){
 
     if(event.key === "Enter"){
-
         trackOrder();
-
     }
 
 });
@@ -582,4 +541,4 @@ document
 </script>
 
 </body>
-        </html>
+</html>
