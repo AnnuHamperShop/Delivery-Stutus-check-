@@ -3,102 +3,310 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Delivery Tracking - DEMO</title>
+
+<title>DEV PET LOVER'S | Order Tracking</title>
 
 <style>
-body{
+*{
     margin:0;
-    font-family:Arial,sans-serif;
-    background:#f3f6f9;
-    color:#222;
+    padding:0;
+    box-sizing:border-box;
 }
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(135deg,#07111f,#10243d);
+    min-height:100vh;
+    color:#172033;
+}
+
 .container{
-    max-width:500px;
-    margin:30px auto;
-    padding:20px;
+    width:100%;
+    max-width:520px;
+    margin:auto;
+    padding:22px 16px 35px;
 }
-.card{
-    background:#fff;
-    border-radius:18px;
-    padding:22px;
-    box-shadow:0 5px 20px rgba(0,0,0,.10);
-}
+
+/* Header */
 .header{
     text-align:center;
-    border-bottom:1px solid #eee;
-    padding-bottom:18px;
+    color:white;
+    padding:20px 10px 25px;
 }
-.header h1{
-    margin:5px 0;
-    font-size:25px;
-}
-.demo{
-    display:inline-block;
-    background:#fff3cd;
-    color:#856404;
-    padding:6px 12px;
+
+.logo{
+    width:68px;
+    height:68px;
+    margin:auto;
     border-radius:20px;
-    font-size:12px;
+    background:linear-gradient(135deg,#00c6ff,#0072ff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+    box-shadow:0 10px 30px rgba(0,114,255,.35);
+}
+
+.header h1{
+    margin-top:15px;
+    font-size:26px;
+    letter-spacing:.5px;
+}
+
+.header p{
+    margin-top:7px;
+    color:#b9c7d9;
+    font-size:14px;
+}
+
+/* Main card */
+.card{
+    background:rgba(255,255,255,.97);
+    border-radius:24px;
+    padding:24px;
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+
+.badge{
+    display:block;
+    width:max-content;
+    margin:0 auto 20px;
+    padding:7px 14px;
+    border-radius:30px;
+    background:#fff4d6;
+    color:#9a6700;
+    font-size:11px;
     font-weight:bold;
+    letter-spacing:.5px;
 }
-.info{
-    margin-top:20px;
-}
-.row{
-    padding:10px 0;
-    border-bottom:1px solid #eee;
-}
-.label{
-    color:#777;
-    font-size:13px;
-}
-.value{
-    font-weight:bold;
-    margin-top:4px;
-}
-.status{
-    margin-top:22px;
-    background:#e8f7ee;
-    color:#168044;
-    padding:15px;
-    border-radius:12px;
-    font-weight:bold;
+
+/* Search */
+.search-title{
     text-align:center;
+    font-size:19px;
+    font-weight:800;
+    margin-bottom:15px;
 }
+
+.search-box{
+    display:flex;
+    gap:9px;
+    background:#f3f6fa;
+    padding:7px;
+    border-radius:16px;
+    border:1px solid #e2e7ee;
+}
+
+.search-box input{
+    min-width:0;
+    flex:1;
+    border:0;
+    outline:none;
+    background:transparent;
+    padding:13px;
+    font-size:15px;
+}
+
+.track-btn{
+    border:0;
+    padding:0 20px;
+    border-radius:12px;
+    background:linear-gradient(135deg,#0072ff,#00a8ff);
+    color:white;
+    font-size:14px;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:0 7px 18px rgba(0,114,255,.3);
+    transition:.2s;
+}
+
+.track-btn:hover{
+    transform:translateY(-2px);
+}
+
+.track-btn:active{
+    transform:scale(.97);
+}
+
+.example{
+    text-align:center;
+    color:#7b8798;
+    font-size:12px;
+    margin-top:11px;
+}
+
+/* Result */
+.result{
+    margin-top:20px;
+    display:none;
+}
+
+.order-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:17px;
+}
+
+.order-header h2{
+    font-size:20px;
+}
+
+.order-id{
+    background:#edf5ff;
+    color:#0067d9;
+    padding:7px 10px;
+    border-radius:10px;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.info{
+    background:#f7f9fc;
+    border-radius:16px;
+    padding:5px 15px;
+}
+
+.info-row{
+    padding:13px 0;
+    border-bottom:1px solid #e8edf3;
+}
+
+.info-row:last-child{
+    border-bottom:0;
+}
+
+.label{
+    font-size:11px;
+    color:#7b8798;
+    margin-bottom:4px;
+}
+
+.value{
+    font-size:14px;
+    font-weight:700;
+    line-height:1.4;
+}
+
+/* Current status */
+.current-status{
+    margin-top:18px;
+    padding:16px;
+    border-radius:16px;
+    background:linear-gradient(135deg,#e8fff2,#f2fff8);
+    border:1px solid #c9f2da;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.status-icon{
+    width:43px;
+    height:43px;
+    border-radius:13px;
+    background:#18a85b;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:21px;
+}
+
+.status-text small{
+    display:block;
+    color:#668071;
+    font-size:11px;
+}
+
+.status-text strong{
+    display:block;
+    color:#11743e;
+    margin-top:3px;
+    font-size:14px;
+}
+
+/* Timeline */
 .timeline{
     margin-top:25px;
 }
+
+.timeline-title{
+    font-size:17px;
+    font-weight:800;
+    margin-bottom:20px;
+}
+
 .step{
     position:relative;
-    padding:0 0 25px 35px;
-    border-left:3px solid #19a463;
+    padding:0 0 25px 43px;
 }
-.step:last-child{
-    border-left:0;
+
+.step:not(:last-child)::before{
+    content:"";
+    position:absolute;
+    left:9px;
+    top:22px;
+    width:2px;
+    height:calc(100% - 8px);
+    background:#19a463;
 }
+
 .dot{
     position:absolute;
-    left:-9px;
+    left:0;
     top:0;
-    width:15px;
-    height:15px;
-    background:#19a463;
+    width:20px;
+    height:20px;
     border-radius:50%;
+    background:#19a463;
+    border:5px solid #dff7e9;
 }
+
 .step h3{
-    margin:0;
-    font-size:16px;
+    font-size:14px;
+    margin-bottom:5px;
 }
+
 .step p{
-    margin:5px 0 0;
-    color:#666;
+    font-size:12px;
+    color:#788495;
+    line-height:1.5;
+}
+
+/* Error */
+.error{
+    display:none;
+    margin-top:13px;
+    padding:12px;
+    border-radius:12px;
+    text-align:center;
+    background:#fff0f0;
+    color:#b42318;
     font-size:13px;
 }
+
+/* Footer */
 .footer{
     text-align:center;
+    color:#8fa1b5;
+    font-size:10px;
+    line-height:1.5;
     margin-top:20px;
-    color:#888;
-    font-size:12px;
+}
+
+/* Mobile */
+@media(max-width:400px){
+    .search-box{
+        flex-direction:column;
+    }
+
+    .track-btn{
+        min-height:48px;
+    }
+
+    .header h1{
+        font-size:23px;
+    }
 }
 </style>
 </head>
@@ -106,74 +314,272 @@ body{
 <body>
 
 <div class="container">
-<div class="card">
 
-<div class="header">
-<span class="demo">DEMO TRACKING</span>
-<h1>Delivery Tracking</h1>
-<p>Order Status</p>
+    <div class="header">
+        <div class="logo">📦</div>
+
+        <h1>DEV PET LOVER'S</h1>
+
+        <p>Fast & Secure Order Tracking</p>
+    </div>
+
+
+    <div class="card">
+
+        <span class="badge">DEMO TRACKING SYSTEM</span>
+
+        <div class="search-title">
+            Track Your Order
+        </div>
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="orderInput"
+                placeholder="Enter Order Number"
+                autocomplete="off"
+            >
+
+            <button class="track-btn" onclick="trackOrder()">
+                TRACK ORDER
+            </button>
+
+        </div>
+
+        <div class="example">
+            Try Demo Order: <b>DEV1001</b>
+        </div>
+
+        <div id="error" class="error"></div>
+
+
+        <!-- ORDER RESULT -->
+
+        <div id="result" class="result">
+
+            <div class="order-header">
+
+                <h2>Order Details</h2>
+
+                <span class="order-id" id="orderNo">
+                </span>
+
+            </div>
+
+
+            <div class="info">
+
+                <div class="info-row">
+                    <div class="label">CUSTOMER NAME</div>
+                    <div class="value" id="customer"></div>
+                </div>
+
+                <div class="info-row">
+                    <div class="label">MOBILE NUMBER</div>
+                    <div class="value" id="mobile"></div>
+                </div>
+
+                <div class="info-row">
+                    <div class="label">DELIVERY ADDRESS</div>
+                    <div class="value" id="address"></div>
+                </div>
+
+            </div>
+
+
+            <div class="current-status">
+
+                <div class="status-icon">
+                    🚚
+                </div>
+
+                <div class="status-text">
+                    <small>CURRENT STATUS</small>
+                    <strong>Shipment In Transit</strong>
+                </div>
+
+            </div>
+
+
+            <div class="timeline">
+
+                <div class="timeline-title">
+                    Shipment Progress
+                </div>
+
+
+                <div class="step">
+
+                    <div class="dot"></div>
+
+                    <h3>Order Confirmed</h3>
+
+                    <p>
+                        Your demo order has been confirmed successfully.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="dot"></div>
+
+                    <h3>Dispatched From Delhi</h3>
+
+                    <p>
+                        Shipment dispatched from Delhi shop.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="dot"></div>
+
+                    <h3>In Transit</h3>
+
+                    <p>
+                        Demo shipment is approximately 100 KM
+                        from the Delhi shop.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="dot"></div>
+
+                    <h3>Expected Delivery</h3>
+
+                    <p>
+                        Expected delivery:
+                        <b>28 September 2026</b>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer">
+        DEMO ONLY — This page is a demonstration tracking interface
+        and is not an official courier tracking system.
+    </div>
+
 </div>
 
-<div class="info">
 
-<div class="row">
-<div class="label">Customer Name</div>
-<div class="value">Varun</div>
-</div>
+<script>
 
-<div class="row">
-<div class="label">Mobile Number</div>
-<div class="value">9381068605</div>
-</div>
+const orders = {
 
-<div class="row">
-<div class="label">Delivery Address</div>
-<div class="value">
-Bhusarapu Vari Ramalayam,<br>
-Khandavalli
-</div>
-</div>
+    "DEV1001": {
 
-</div>
+        customer: "Varun",
 
-<div class="status">
-📦 Shipment In Transit
-</div>
+        mobile: "9381068605",
 
-<div class="timeline">
+        address:
+        "Bhusarapu Vari Ramalayam, Khandavalli"
 
-<div class="step">
-<div class="dot"></div>
-<h3>Order Confirmed</h3>
-<p>Shipment has been confirmed.</p>
-</div>
+    }
 
-<div class="step">
-<div class="dot"></div>
-<h3>Dispatched</h3>
-<p>Shipment dispatched from Delhi shop.</p>
-</div>
+};
 
-<div class="step">
-<div class="dot"></div>
-<h3>In Transit</h3>
-<p>Order status: Shipment has travelled approximately 100 KM from Delhi shop.</p>
-</div>
 
-<div class="step">
-<div class="dot"></div>
-<h3>Expected Delivery</h3>
-<p><b>28 September 2026</b></p>
-</div>
+function trackOrder(){
 
-</div>
+    const input =
+    document.getElementById("orderInput");
 
-<div class="footer">
-This page is a tracking template and is an official courier tracking system.
-</div>
+    const orderNumber =
+    input.value.trim().toUpperCase();
 
-</div>
-</div>
+    const result =
+    document.getElementById("result");
+
+    const error =
+    document.getElementById("error");
+
+
+    result.style.display = "none";
+
+    error.style.display = "none";
+
+
+    if(orderNumber === ""){
+
+        error.innerHTML =
+        "Please enter your Order Number.";
+
+        error.style.display = "block";
+
+        return;
+    }
+
+
+    const order =
+    orders[orderNumber];
+
+
+    if(!order){
+
+        error.innerHTML =
+        'Order not found. Try demo order <b>DEV1001</b>.';
+
+        error.style.display = "block";
+
+        return;
+    }
+
+
+    document.getElementById("orderNo")
+    .textContent = orderNumber;
+
+
+    document.getElementById("customer")
+    .textContent = order.customer;
+
+
+    document.getElementById("mobile")
+    .textContent = order.mobile;
+
+
+    document.getElementById("address")
+    .textContent = order.address;
+
+
+    result.style.display = "block";
+
+    result.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+}
+
+
+document
+.getElementById("orderInput")
+.addEventListener("keydown", function(event){
+
+    if(event.key === "Enter"){
+
+        trackOrder();
+
+    }
+
+});
+
+</script>
 
 </body>
-  </html>
+        </html>
